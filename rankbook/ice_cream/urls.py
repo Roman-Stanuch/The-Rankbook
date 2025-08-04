@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<str:name>", views.named_request, name="named_request")
+    path("submit/", views.submit, name="submit")
 ]

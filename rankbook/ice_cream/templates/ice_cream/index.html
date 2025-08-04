@@ -1,12 +1,11 @@
-{% load static %}
+{% extends "ice_cream/layout.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Ice Cream Rankings</title>
-        <link href="{% static 'ice_cream/styles.css' %}" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Ice Cream Rankings</h1>
-    </body>
-</html>
+{% block body %}
+    <h1>Ice Cream Rankings on {{ date }}</h1>
+    <ol>
+        {% for ranking in rankings %}
+            <li>{{ ranking }}</li>
+        {% endfor %}
+        <a href="{% url 'submit' %}">Submit an Ice Cream Ranking</a>
+    </ol>
+{% endblock %}

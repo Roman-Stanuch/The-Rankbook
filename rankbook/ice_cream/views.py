@@ -4,11 +4,12 @@ import datetime
 
 # Create your views here.
 def index(request):
-    return render(request, "ice_cream/index.html") 
-
-def named_request(request, name):
     now = datetime.datetime.now()
-    return render(request, "ice_cream/named_request.html", {
-        "name": name.capitalize(),
-        "date": now.date()
+    rankings = ["Cornell", "Madison", "Carnegie"]
+    return render(request, "ice_cream/index.html", {
+        "date": now.date(),
+        "rankings": rankings
     }) 
+
+def submit(request):
+    return render(request, "ice_cream/submit.html")
