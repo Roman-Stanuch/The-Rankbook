@@ -1,13 +1,15 @@
 {% extends "rankings/layout.html" %}
 
 {% block title %}
-   Submit Ranking 
+   Submit Vote 
 {% endblock %}
 
 {% block body %}
-    <h1>Submit Ice Cream Ranking</h1>
-    <form>
-        <input type="text" name="ranking">
+    <h1>Submit Vote</h1>
+    <form action="{% url 'rankings:submit' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
         <input type="submit">
     </form>
+    <a href="{% url 'rankings:index' %}">Return to Rankings</a>
 {% endblock %}

@@ -5,11 +5,14 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Rankings on {{ date }}</h1>
+    <h1>All Rankings</h1>
     <ol>
         {% for ranking in rankings %}
             <li>{{ ranking }}</li>
+        {% empty %}
+            <li>No Rankings Found!</li>
         {% endfor %}
-        <a href="{% url 'submit' %}">Submit an Ice Cream Ranking</a>
+        <br>
+        <a href="{% url 'rankings:submit' %}">Submit a vote!</a>
     </ol>
 {% endblock %}
