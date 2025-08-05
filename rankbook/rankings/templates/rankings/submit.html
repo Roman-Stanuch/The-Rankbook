@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>Submit Vote</h1>
-    <form action="{% url 'rankings:submit' %}" method="post">
+    <form action="{% url 'rankings:submit' %}" method="post" autocomplete="off">
         {% csrf_token %}
         {{ form }}
         <input type="submit">

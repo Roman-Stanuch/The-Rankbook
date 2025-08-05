@@ -1,0 +1,17 @@
+{% extends "schools/layout.html" %}
+
+{% block title %}
+    Schools Home
+{% endblock %}
+
+{% block body %}
+    <h1>All Schools</h1>
+    <ul>
+        {% for school in schools %}
+            <li><a href="{% url 'schools:school_home' school %}">{{ school }}</a></li>
+        {% empty %}
+            <li>No Schools Found!</li>
+        {% endfor %}
+        <br>
+    </ul>
+{% endblock %}
