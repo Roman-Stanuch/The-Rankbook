@@ -1,7 +1,11 @@
-{% extends "ice_cream/layout.html" %}
+{% extends "rankings/layout.html" %}
+
+{% block title %}
+    Rankings Home
+{% endblock %}
 
 {% block body %}
-    <h1>Ice Cream Rankings on {{ date }}</h1>
+    <h1>Rankings on {{ date }}</h1>
     <ol>
         {% for ranking in rankings %}
             <li>{{ ranking }}</li>
