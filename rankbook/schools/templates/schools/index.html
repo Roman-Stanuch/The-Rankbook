@@ -8,7 +8,7 @@
     <h1>All Schools</h1>
     <ul>
         {% for school in schools %}
-            <li><a href="{% url 'schools:school_home' school %}">{{ school }}</a></li>
+            <li><a href="{% url 'schools:school_home' school.name %}">{{ school.name }}</a></li>
         {% empty %}
             <li>No Schools Found!</li>
         {% endfor %}

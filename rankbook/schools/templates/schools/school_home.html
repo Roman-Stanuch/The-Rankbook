@@ -6,6 +6,12 @@
 
 {% block body %}
     <h1>Data for {{ school }}</h1>
-
+    <ul>
+        {% for ranking in rankings %}
+            <li>{{ ranking.business }} has {{ ranking.votes }} votes for its {{ ranking.type }}</li>
+        {% empty %}
+            <li>No data found for {{ school }}!</li>
+        {% endfor %}
+    </ul>
     <a href="{% url 'schools:index' %}">See all Schools</a>
 {% endblock %}
