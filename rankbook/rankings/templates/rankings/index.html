@@ -8,7 +8,7 @@
     <h1>All Rankings</h1>
     <ol>
         {% for ranking in rankings %}
-            <li>{{ ranking }}</li>
+            <li>{{ ranking.business }}</li>
         {% empty %}
             <li>No Rankings Found!</li>
         {% endfor %}
