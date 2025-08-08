@@ -8,7 +8,7 @@
     <h1>Data for {{ school }}</h1>
     <ul>
         {% for ranking in rankings %}
-            <li>{{ ranking.business }} has {{ ranking.votes }} votes for its {{ ranking.type }}</li>
+            <li>{{ ranking.business }} has {{ ranking.votes }} votes for its {{ ranking.category.name }}</li>
         {% empty %}
             <li>No data found for {{ school }}!</li>
         {% endfor %}

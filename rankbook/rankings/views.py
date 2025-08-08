@@ -3,15 +3,15 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import Ranking
+from .models import Ranking, RankingCategory
 from schools.models import School
 
 import datetime
 
 class NewVoteForm(forms.Form):
+    category = forms.ModelChoiceField(queryset=RankingCategory.objects.all(), empty_label="Select a Category")
     school = forms.ModelChoiceField(queryset=School.objects.all(), empty_label="Select a School")
-    business = forms.CharField(label="Business")
-    type = forms.CharField(label="Type")
+    business = forms.CharField(label="Business or Object Name")
 
 # Create your views here.
 def index(request):
@@ -24,11 +24,11 @@ def submit(request):
         form = NewVoteForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            entered_school = data["school"]
-            entered_business = data["business"]
-            entered_type = data["type"]
+            submitted_category = data["category"]
+            submitted_school = data["school"]
+            submitted_business = data["business"]
 
-            ranking, created = Ranking.objects.update_or_create(school=entered_school, business=entered_business, type=entered_type)
+            ranking, created = Ranking.objects.update_or_create(category=submitted_category, school=submitted_school, business=submitted_business)
             ranking.votes += 1
             ranking.save()
 
