@@ -1,16 +1,16 @@
 {% extends "schools/layout.html" %}
 
 {% block title %}
-    {{ school }}
+    {{ school_data.name }}
 {% endblock %}
 
 {% block body %}
-    <h1>Data for {{ school }}</h1>
+    <h1>Data for {{ school_data.name }}</h1>
     <ul>
         {% for ranking in rankings %}
             <li>{{ ranking.business }} has {{ ranking.votes }} votes for its {{ ranking.category.name }}</li>
         {% empty %}
-            <li>No data found for {{ school }}!</li>
+            <li>No data found for {{ school_data.name }}!</li>
         {% endfor %}
     </ul>
     <a href="{% url 'schools:index' %}">See all Schools</a>

@@ -9,13 +9,11 @@ def index(request):
         "schools": School.objects.all()
     })
 
-def school_home(request, school):
-    school_data = School.objects.filter(name=school).first()
-    rankings = []
-    if len(school_data.rankings.all()) > 0:
-        rankings = school_data.rankings.all()
+def school_home(request, school_id):
+    school_data = School.objects.get(pk=school_id)
+    rankings = school_data.rankings.all()
 
     return render(request, "schools/school_home.html", {
-        "school": school,
+        "school_data": school_data,
         "rankings": rankings
     })

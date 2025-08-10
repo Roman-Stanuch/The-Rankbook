@@ -12,7 +12,8 @@
         {% empty %}
             <li>No Rankings Found!</li>
         {% endfor %}
-        <br>
-        <a href="{% url 'rankings:submit' %}">Submit a vote!</a>
     </ol>
+    <a href="{% url 'rankings:submit' %}">Submit a Vote!</a>
+    <br>
+    <a href="{% url 'home:index' %}">Return to Home</a>
 {% endblock %}
