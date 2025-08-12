@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>The Rankbook Home</title>
-    </head>
-    <body>
-        <h1>The Rankbook</h1>
-        <p>Ranking colleges on only irrelevant factors since 2025!</p>
-        <a href="{% url 'rankings:index' %}">Check out the Rankings!</a>
-        <br>
-        <a href="{% url 'schools:index' %}">Check out Data for Individual Schools!</a>
-    </body>
-</html>
+{% extends "bootstrap.html" %}
+
+{% block title %}
+    The Rankbook Home
+{% endblock %}
+
+{% block body %}
+    <h1>The Rankbook</h1>
+    <p>Ranking colleges on only irrelevant factors since 2025!</p>
+    <a href="{% url 'rankings:index' %}">Check out the Rankings!</a>
+    <br>
+    <a href="{% url 'schools:index' %}">Check out Data for Individual Schools!</a>
+{% endblock %}
