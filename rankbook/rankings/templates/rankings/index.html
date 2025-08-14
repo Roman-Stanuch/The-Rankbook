@@ -1,19 +1,23 @@
-{% extends "bootstrap.html" %}
+{% extends "main_nav.html" %}
 
 {% block title %}
-    Rankings Home
+    The Rankbook Rankings
 {% endblock %}
 
-{% block body %}
-    <h1>All Rankings</h1>
-    <ol>
-        {% for ranking in rankings %}
-            <li>{{ ranking.business }}</li>
-        {% empty %}
-            <li>No Rankings Found!</li>
-        {% endfor %}
-    </ol>
+{% block rankings_pill_classes %}
+    active
+{% endblock %}
+
+{% block content %}
+    {% for category in categories %}
+        <h2>{{category.name}} Rankings</h2>
+        <ul>
+            {% for ranking in category.rankings.all|dictsortreversed:"votes" %}
+                <li>{{ ranking.business }} | {{ ranking.school.name }}, {{ ranking.school.city }} | {{ ranking.votes }} Votes</li>
+            {% empty %}
+                <li>No Rankings Found!</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
     <a href="{% url 'rankings:submit' %}">Submit a Vote!</a>
-    <br>
-    <a href="{% url 'home:index' %}">Return to Home</a>
 {% endblock %}

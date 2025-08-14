@@ -1,10 +1,14 @@
-{% extends "bootstrap.html" %}
+{% extends "main_nav.html" %}
 
 {% block title %}
-    Schools Home
+    The Rankbook Schools
 {% endblock %}
 
-{% block body %}
+{% block schools_pill_classes %}
+    active
+{% endblock %}
+
+{% block content %}
     <h1>All Schools</h1>
     <ul>
         {% for school in schools %}
@@ -13,5 +17,4 @@
             <li>No Schools Found!</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'home:index' %}">Return to Home</a>
 {% endblock %}

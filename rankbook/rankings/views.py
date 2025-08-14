@@ -14,7 +14,7 @@ class NewVoteForm(forms.Form):
 # Create your views here.
 def index(request):
     return render(request, "rankings/index.html", {
-        "rankings": Ranking.objects.all() 
+        "categories": RankingCategory.objects.all() 
     }) 
 
 def submit(request):

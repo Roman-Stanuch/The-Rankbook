@@ -1,0 +1,46 @@
+{% extends "bootstrap.html" %}
+
+{% block body %}
+<div class="container">
+    <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="{% url 'home:index' %}" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <h1>The Rankbook</h1>
+            </a>
+        </div>
+        <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li>
+                <a href="{% url 'home:index' %}" id="home-pill" class="nav-link px-2 {% block home_pill_classes %}{% endblock %}">
+                    <h4>Home</h4>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'rankings:index' %}" id="rankings-pill" class="nav-link px-2 {% block rankings_pill_classes %}{% endblock %}">
+                    <h4>Rankings</h4>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'schools:index' %}" id="schools-pill" class="nav-link px-2 {% block schools_pill_classes %}{% endblock %}">
+                    <h4>Schools</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="about-pill" class="nav-link px-2 {% block about_pill_classes %}{% endblock %}">
+                    <h4>About</h4>
+                </a>
+            </li>
+        </ul>
+        <div class="col-md-3 text-end" style="display: none;">
+            <button type="button" class="btn btn-outline-primary me-2">Login</button>
+            <button type="button" class="btn btn-primary">Sign-up</button>
+        </div>
+    </header>
+</div>
+
+<div class="container flex-wrap justify-content-center">
+    {% block content %}
+    {% endblock %}
+</div>
+
+{% endblock %}

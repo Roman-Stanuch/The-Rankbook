@@ -1,15 +1,18 @@
-{% extends "bootstrap.html" %}
+{% extends "main_nav.html" %}
 
 {% block title %}
    Submit Vote 
 {% endblock %}
 
-{% block body %}
+{% block rankings_pill_classes %}
+    active
+{% endblock %}
+
+{% block content %}
     <h1>Submit Vote</h1>
     <form action="{% url 'rankings:submit' %}" method="post" autocomplete="off">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit">
     </form>
-    <a href="{% url 'rankings:index' %}">Return to Rankings</a>
 {% endblock %}
